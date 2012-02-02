@@ -1,0 +1,27 @@
+<h1>Läufe von <%= @email %></h1>
+
+<table>
+  <tr>
+    <th>Distance</th>
+    <th>Shoe</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @runs.each do |run| %>
+  <tr>
+    <td><%= run.distance %></td>
+    <td><%= run.shoe %></td>
+    <td><%= link_to 'Show', run %></td>
+    <td><%= link_to 'Edit', edit_run_path(run) %></td>
+    <td><%= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<p>
+<%= link_to 'New Run', new_run_path %>
+</p>

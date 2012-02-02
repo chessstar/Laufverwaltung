@@ -1,0 +1,18 @@
+<p>
+  <b>Distance:</b>
+  <%= @run.distance %>
+</p>
+
+<p>
+  <b>Shoe:</b>
+  <%= @run.shoe %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @run.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_run_path(@run) %> |
+<%= link_to 'Back', runs_path %>
