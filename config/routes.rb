@@ -4,6 +4,8 @@ Laufverwaltung::Application.routes.draw do
   resources :runs
 	resources :users, only: [:new, :create]
 
+  post "runs/output" =>"runs#output", as: 'output'
+
 	get "login" => "sessions#new", as: 'login'
 	post "sessions" => "sessions#create", as: 'sessions'
 	delete "logout" => "sessions#destroy", as: 'logout'

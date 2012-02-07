@@ -2,13 +2,32 @@
 class RunsController < ApplicationController
 
 	before_filter :require_login
-
   # GET /runs
   # GET /runs.json
+
+	def output
+		startdatum = params[:startdatum].to_date
+		enddatum = params[:enddatum].to_date
+		respond_to do |format|
+			if enddatum.nil? or startdatum.nil? or (enddatum < startdatum) or (startdatum > enddatum) 
+				format.html { redirect_to runs_path, notice: 'Bitte Datum korrigieren' }
+			else
+        format.html # output.html.erb
+				@summe_distance_calc = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)	
+		  end
+		end
+	end
+
   def index
     @runs = current_user.runs
-		@email = current_user.email
-
+		@nickname = current_user.nickname
+		@summe_distance_all = Run.nutzer(current_user.id).sum(:distance)
+		startdatum = '2011-01-01'.to_date
+		enddatum = '2011-12-12'.to_date
+		@summe_distance_2011 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+		startdatum = '2012-01-01'.to_date
+		enddatum = '2012-12-31'.to_date
+		@summe_distance_2012 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @runs }
@@ -46,10 +65,11 @@ class RunsController < ApplicationController
   # POST /runs.json
   def create
     @run = current_user.runs.build(params[:run])
-
+		# Errechne Gesamtzeit in Sekunden
+		@run.runtime_in_seconds = (params[:run][:run_hours].to_i)*3600+(params[:run][:run_minutes].to_i)*60+(params[:run][:run_seconds].to_i)
     respond_to do |format|
       if @run.save
-        format.html { redirect_to @run, notice: 'Run was successfully created.' }
+        format.html { redirect_to @run, notice: 'Lauf erfolgreich erstellt.' }
         format.json { render json: @run, status: :created, location: @run }
       else
         format.html { render action: "new" }
@@ -62,10 +82,12 @@ class RunsController < ApplicationController
   # PUT /runs/1.json
   def update
     @run = current_user.runs.find(params[:id])
+		# Errechne Gesamtzeit in Sekunden
+		@run.runtime_in_seconds = (params[:run][:run_hours].to_i)*3600+(params[:run][:run_minutes].to_i)*60+(params[:run][:run_seconds].to_i)
 
-    respond_to do |format|
+		respond_to do |format|
       if @run.update_attributes(params[:run])
-        format.html { redirect_to @run, notice: 'Run was successfully updated.' }
+        format.html { redirect_to @run, notice: 'Lauf erfolgreich aktualisiert.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -13,11 +13,31 @@
 
   <div class="field">
     <%= f.label :distance %><br />
-    <%= f.text_field :distance %>
+    <%# f.text_field :distance %>
+		<%= f.text_field :distance, :size => 6, :maxlength => 6, :value => (number_with_delimiter(f.object.distance, :separator => ',')) %>
   </div>
+
+  <div class="field">
+    <%= f.label :run_hours %><br />
+    <%= f.text_field :run_hours, :size => 2,  :maxlength => 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :run_minutes %><br />
+    <%= f.text_field :run_minutes, :size => 2,  :maxlength => 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :run_seconds %><br />
+    <%= f.text_field :run_seconds, :size => 2,  :maxlength => 2 %>
+  </div>
+
   <div class="field">
     <%= f.label :shoe %><br />
     <%= f.text_field :shoe %>
+  </div>
+
+  <div class="field">
+    <%= f.label :run_at %><br />
+		<%= f.date_select :run_at, :end_year => Time.now.year, :start_year => Time.now.year- 3 %>
   </div>
 
   <div class="actions">

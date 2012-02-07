@@ -11,14 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202060207) do
+ActiveRecord::Schema.define(:version => 20120203073642) do
 
   create_table "runs", :force => true do |t|
-    t.string   "distance"
+    t.decimal  "distance"
     t.string   "shoe"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "run_at"
+    t.integer  "run_hours"
+    t.integer  "run_minutes"
+    t.integer  "run_seconds"
+    t.integer  "runtime_in_seconds"
   end
 
   create_table "users", :force => true do |t|
@@ -26,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120202060207) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nickname"
   end
 
 end

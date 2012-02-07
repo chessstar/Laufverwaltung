@@ -1,9 +1,33 @@
-<h1>Läufe von <%= @email %></h1>
+<h1>Läufe von <%= @nickname %></h1>
+<div>Deine Gesamtdistanz: <%= number_with_precision(@summe_distance_all) %> km</div>
+<div>Gesamtdistanz 2011: <%= number_with_precision(@summe_distance_2011) %> km</div>
+<div>Gesamtdistanz 2012: <%= number_with_precision(@summe_distance_2012) %> km</div>
+
+<p>Oder wähle einen Zeitraum</p>
+<%= form_tag output_path do %>
+  <div class="field">
+    <%= label_tag(:startdatum, "Start") %>
+    <%= text_field_tag :startdatum, nil, :size => 10, :maxlength => 10 %>
+  </div>	
+
+  <div class="field">
+    <%= label_tag(:enddatum, "Ende") %>
+    <%= text_field_tag :enddatum, nil, :size => 10, :maxlength => 10 %>
+  </div>	
+
+  <div class="actions">
+    <%= submit_tag("Zeige Kilometerleistung") %>
+  </div>	
+
+<% end %><br /><br />
 
 <table>
   <tr>
-    <th>Distance</th>
-    <th>Shoe</th>
+    <th>Distanz</th>
+    <th>Laufzeit</th>
+    <th>Schuh</th>
+    <th>gelaufen am:</th>
+    <th>Tempo</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,17 +35,18 @@
 
 <% @runs.each do |run| %>
   <tr>
-    <td><%= run.distance %></td>
+    <td><%= number_with_precision run.distance %> km</td>
+    <td><%= (Time.mktime(0)+(run.runtime_in_seconds)).strftime("%k:%M:%S") %></td>
     <td><%= run.shoe %></td>
-    <td><%= link_to 'Show', run %></td>
-    <td><%= link_to 'Edit', edit_run_path(run) %></td>
-    <td><%= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= localize run.run_at , form: :short %></td>
+    <td><%= number_with_precision ((run.runtime_in_seconds) / (run.distance) / 60) %> min/km</td>
+    <td><%= link_to 'Details', run %></td>
+    <td><%= link_to 'Bearbeiten', edit_run_path(run) %></td>
+    <td><%= link_to 'Löschen', run, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
 <p>
-<%= link_to 'New Run', new_run_path %>
+<%= link_to 'Neuer Lauf', new_run_path %>
 </p>
