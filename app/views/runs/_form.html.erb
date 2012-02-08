@@ -31,8 +31,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :brand %><br />
-		<%= f.collection_select :shoe_id, Shoe.all, :id, :brand, prompt: "Bitte wählen" %>
+    <%= f.label :fullname %><br />
+		<%= f.collection_select :shoe_id, @schuhe_eines_nutzer, :id, :fullname, prompt: "Bitte wählen" %>
   </div>
 
   <div class="field">

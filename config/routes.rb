@@ -1,4 +1,6 @@
 Laufverwaltung::Application.routes.draw do
+  resources :shoes
+
 	root to: 'pages#home'
 
   resources :runs

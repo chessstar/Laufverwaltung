@@ -8,7 +8,6 @@ before_validation :remove_comma
   validates :run_hours, numericality: {:only_integer => true, :greater_than_or_equal_to => 0, :less_than => 24}
   validates :run_minutes, numericality: {:only_integer => true, :greater_than_or_equal_to => 0, :less_than => 60}
   validates :run_seconds, numericality: {:only_integer => true, :greater_than_or_equal_to => 0, :less_than => 60}
-  #validates :shoebrand, presence: true
 
 	scope :nutzer, lambda {|current_user| where(:user_id => current_user)}
 	scope :zeitraum, lambda {|startdatum, enddatum| where(:run_at => (startdatum)..(enddatum))}

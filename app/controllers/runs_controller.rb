@@ -32,8 +32,6 @@ class RunsController < ApplicationController
 		startdatum = '2012-01-01'.to_date
 		enddatum = '2012-12-31'.to_date
 		@summe_distance_2012 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
-		marke = 1
-		@distance_mit_schuh = Run.nutzer(current_user.id).schuhmarke(marke).sum(:distance)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @runs }
@@ -55,7 +53,7 @@ class RunsController < ApplicationController
   # GET /runs/new.json
   def new
     @run = current_user.runs.build
-
+		@schuhe_eines_nutzer = Shoe.nutzer(current_user.id)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @run }
@@ -65,6 +63,7 @@ class RunsController < ApplicationController
   # GET /runs/1/edit
   def edit
     @run = current_user.runs.find(params[:id])
+		@schuhe_eines_nutzer = Shoe.nutzer(current_user.id)
   end
 
   # POST /runs
