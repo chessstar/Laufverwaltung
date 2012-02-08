@@ -9,11 +9,15 @@ class RunsController < ApplicationController
 		startdatum = params[:startdatum].to_date
 		enddatum = params[:enddatum].to_date
 		respond_to do |format|
-			if enddatum.nil? or startdatum.nil? or (enddatum < startdatum) or (startdatum > enddatum) 
-				format.html { redirect_to runs_path, notice: 'Bitte Datum korrigieren' }
+			if enddatum.nil? or startdatum.nil?
+				@fehler = "Start und/oder Ende dürfen nicht leer sein"
+				format.js
+			elsif (startdatum > enddatum)
+				@fehler = "Datum überprüfen"
+				format.js
 			else
-        format.html # output.html.erb
-				@summe_distance_calc = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)	
+ 				@summe_distance_calc = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)	
+				format.js
 		  end
 		end
 	end
@@ -28,6 +32,8 @@ class RunsController < ApplicationController
 		startdatum = '2012-01-01'.to_date
 		enddatum = '2012-12-31'.to_date
 		@summe_distance_2012 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+		marke = 1
+		@distance_mit_schuh = Run.nutzer(current_user.id).schuhmarke(marke).sum(:distance)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @runs }

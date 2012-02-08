@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203073642) do
+ActiveRecord::Schema.define(:version => 20120208081045) do
 
   create_table "runs", :force => true do |t|
     t.decimal  "distance"
-    t.string   "shoe"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,6 +23,20 @@ ActiveRecord::Schema.define(:version => 20120203073642) do
     t.integer  "run_minutes"
     t.integer  "run_seconds"
     t.integer  "runtime_in_seconds"
+    t.integer  "shoe_id"
+  end
+
+  create_table "shoebrands", :force => true do |t|
+    t.string   "brand"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shoes", :force => true do |t|
+    t.string   "brand"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
