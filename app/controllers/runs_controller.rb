@@ -9,21 +9,20 @@ class RunsController < ApplicationController
 		startdatum = params[:startdatum].to_date
 		enddatum = params[:enddatum].to_date
 		respond_to do |format|
-			if enddatum.nil? or startdatum.nil?
-				@fehler = "Start und/oder Ende dürfen nicht leer sein"
-				format.js
-			elsif (startdatum > enddatum)
-				@fehler = "Datum überprüfen"
+			if enddatum.nil? or startdatum.nil? or (startdatum > enddatum)
+				@msg = 'Datum nicht korrekt'
+				flash.now[:notice] = @msg
 				format.js
 			else
- 				@summe_distance_calc = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)	
+ 				@msg = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+				flash.now[:alert] = @msg
 				format.js
 		  end
 		end
 	end
 
   def index
-    @runs = current_user.runs
+    @runs = current_user.runs.order( 'run_at DESC' )
     @shoes = current_user.shoes
 		@nickname = current_user.nickname
 		@summe_distance_all = Run.nutzer(current_user.id).sum(:distance)
@@ -75,7 +74,7 @@ class RunsController < ApplicationController
 		@run.runtime_in_seconds = (params[:run][:run_hours].to_i)*3600+(params[:run][:run_minutes].to_i)*60+(params[:run][:run_seconds].to_i)
     respond_to do |format|
       if @run.save
-        format.html { redirect_to @run, notice: 'Lauf erfolgreich erstellt.' }
+        format.html { redirect_to runs_path, notice: 'Lauf erfolgreich erstellt.' }
         format.json { render json: @run, status: :created, location: @run }
       else
         format.html { render action: "new" }
@@ -93,7 +92,7 @@ class RunsController < ApplicationController
 
 		respond_to do |format|
       if @run.update_attributes(params[:run])
-        format.html { redirect_to @run, notice: 'Lauf erfolgreich aktualisiert.' }
+        format.html { redirect_to runs_path, notice: 'Lauf erfolgreich aktualisiert.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
