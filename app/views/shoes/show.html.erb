@@ -1,0 +1,13 @@
+<p>
+  <b>Brand:</b>
+  <%= @shoe.brand %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @shoe.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_shoe_path(@shoe) %> |
+<%= link_to 'Back', :back %>

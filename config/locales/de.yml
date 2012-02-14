@@ -1,0 +1,28 @@
+# deutsch
+# KEINE TABULATOREN VERWENDEN !!!!
+
+de:
+  activerecord:
+    models:
+      run: "Lauf"
+      user: "Benutzer"
+      shoe: "Schuh"
+    attributes:
+      run:
+        distance: "Distanz"
+        shoe: "Schuh"
+        run_at: "gelaufen am"
+        run_time: "Laufzeit"
+        run_hours: "Stunden"
+        run_minutes: "Minuten"
+        run_seconds: "Sekunden"
+        brand: "Hersteller"
+        fullname: "Hersteller und Model"
+      user:
+        email: "Email"
+        nickname: "Benutzername"
+        password: "Passwort"
+        password_confirmation: "Passwortbestätigung"
+      shoe:
+        brand: "Hersteller"
+        description: "Beschreibung"

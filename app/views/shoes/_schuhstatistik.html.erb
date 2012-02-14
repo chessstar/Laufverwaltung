@@ -1,0 +1,23 @@
+<div id="schuhstatistik">
+	<h4>Schuhstatistik</h4>
+	<table>
+		<tr>
+		  <th>Hersteller</th>
+		  <th>Beschreibung</th>
+		  <th></th>
+		  <th></th>
+		  <th></th>
+		</tr>
+
+	<% @shoes.each do |shoe| %>
+		<tr>
+		  <td><%= shoe.brand %></td>
+		  <td><%= shoe.description %></td>
+			<td><%= number_with_precision(shoe.runs.sum(:distance)) %> km</td>
+		  <td><%= link_to 'Bearbeiten', edit_shoe_path(shoe) %></td>
+		  <td><%= link_to 'Löschen', shoe, confirm: 'Bist du sicher?', method: :delete %></td>
+		</tr>
+	<% end %>
+	</table>
+	<%= link_to 'Neuen Schuh eingeben', new_shoe_path %>
+</div>
