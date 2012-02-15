@@ -21,46 +21,40 @@
 
 <body>
 <header>
-	<div class="ym-wrapper">
-		<div class="ym-wbox">
-			<h1>Laufverwaltung</h1>
+	<div class="ym-grid">
+		<div class="ym-g960-12 ym-gl">
+			<div class="ym-gbox">
+				<h5>Laufverwaltung</h5>
+			</div>
 		</div>
 	</div>
 </header>
 
-<div class="ym-column">
-	<div class="ym-col1">
-    <div class="ym-cbox">
-Navigation
+<div class="ym-grid">
+	<div class="ym-g960-2 ym-gl">
+    <div class="ym-gbox">
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
     </div>
 	</div>
- 	<div class="ym-col3">
-    <div class="ym-cbox">
-			<div id='content'>
-				<% if flash[:notice] %>
-					<p id='notice'><%= flash[:notice] %> </p>
-				<% end %>
-				<% if flash[:alert] %>
-					<p id='alert'><%= flash[:alert] %> </p>
-				<% end %>
-			</div>
-			<%= yield %>
-			</div>
+	<div class="ym-g960-10 ym-gl">
+    <div class="ym-gbox">
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
     </div>
 	</div>
 </div>
 
 
-
 <footer>
-	<div class="ym-wrapper">
-		<div class="ym-wbox">
-		<% if user_signed_in? %>
-			<%= link_to 'Abmelden', logout_path, method: :delete %>
-		<% else %>
-			<%= link_to 'Anmelden', login_path %>
-		<% end %>
-			<p>© Company 2011 &ndash; Layout based on <a href="http://www.yaml.de">YAML</a></p>
+	<div class="ym-grid">
+		<div class="ym-g960-12 ym-gl">
+			<div class="ym-gbox">
+				<% if user_signed_in? %>
+					<%= link_to 'Abmelden', logout_path, method: :delete %>
+				<% else %>
+					<%= link_to 'Anmelden', login_path %>
+				<% end %>
+					<p>© Company 2011 &ndash; Layout based on <a href="http://www.yaml.de">YAML</a></p>
+			</div>
 		</div>
 	</div>
 </footer>
