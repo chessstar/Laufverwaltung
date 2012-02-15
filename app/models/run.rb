@@ -12,6 +12,8 @@ before_validation :remove_comma
 	scope :nutzer, lambda {|current_user| where(:user_id => current_user)}
 	scope :zeitraum, lambda {|startdatum, enddatum| where(:run_at => (startdatum)..(enddatum))}
 	scope :schuhmarke, lambda {|schuh| where(:shoe_id => schuh)}
+  scope :sichtbar, where(:viewable => true)
+  scope :unsichtbar, where(:viewable => false)
 	#scope :summe, sum(:distance) funktioniert nicht ! siehe unten, deswegen wird sie im Controller angehängt
 	#def self.summe
 	# sum('distance')

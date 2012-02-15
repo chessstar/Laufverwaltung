@@ -5,7 +5,7 @@ class ShoesController < ApplicationController
   # GET /shoes
   # GET /shoes.json
   def index
-    @shoes = current_user.shoes
+    @shoes = current_user.shoes.sichtbar
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shoes }
@@ -16,7 +16,6 @@ class ShoesController < ApplicationController
   # GET /shoes/1.json
   def show
     @shoe = current_user.shoes.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @shoe }
@@ -55,6 +54,31 @@ class ShoesController < ApplicationController
       end
     end
   end
+
+	#def hide:
+	#Blendet einzelne Schuhe aus der Liste aus, löschen ist nicht sinnvoll,
+	#da dann die Runs nicht konsistent sind, da "Schuh" Pflichfeld ist
+	def hide
+    @shoe = current_user.shoes.find(params[:id])
+		@shoe.viewable = false
+		@shoe.save
+    respond_to do |format|
+      format.html { redirect_to runs_path }
+		end
+	end
+
+	#def unhide:
+	#Blendet alle ausgeblendeten Schuhe wieder ein
+	def unhide
+		@shoes = current_user.shoes.unsichtbar
+		@shoes.each do |shoe|
+			shoe.viewable=true
+			shoe.save
+		end
+    respond_to do |format|
+      format.html { redirect_to runs_path }
+		end
+	end
 
   # PUT /shoes/1
   # PUT /shoes/1.json

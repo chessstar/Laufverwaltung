@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208184304) do
+ActiveRecord::Schema.define(:version => 20120215071802) do
 
   create_table "runs", :force => true do |t|
     t.decimal  "distance"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120208184304) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "fullname"
+    t.boolean  "viewable"
   end
 
   create_table "users", :force => true do |t|

@@ -6,4 +6,6 @@ class Shoe < ActiveRecord::Base
 
 
 	scope :nutzer, lambda {|current_user| where(:user_id => current_user)}
+  scope :sichtbar, where(:viewable => true)
+  scope :unsichtbar, where(:viewable => false)
 end

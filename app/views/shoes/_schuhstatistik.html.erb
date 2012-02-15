@@ -15,9 +15,9 @@
 		  <td><%= shoe.description %></td>
 			<td><%= number_with_precision(shoe.runs.sum(:distance)) %> km</td>
 		  <td><%= link_to 'Bearbeiten', edit_shoe_path(shoe) %></td>
-		  <td><%= link_to 'Löschen', shoe, confirm: 'Bist du sicher?', method: :delete %></td>
+		  <td><%= link_to 'Ausblenden', hide_shoe_path(shoe), method: :put %></td>
 		</tr>
 	<% end %>
 	</table>
-	<%= link_to 'Neuen Schuh eingeben', new_shoe_path %>
+	<%= link_to 'Neuen Schuh eingeben', new_shoe_path %> | <%= link_to 'Ausgeblendete Schuhe zeigen', unhide_shoes_path, method: :put %> (<%= @hide_shoes %>)
 </div>

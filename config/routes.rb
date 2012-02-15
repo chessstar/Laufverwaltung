@@ -1,6 +1,7 @@
 Laufverwaltung::Application.routes.draw do
   resources :shoes
-
+  put "shoes/:id/hide" => "shoes#hide", as: 'hide_shoe'
+  put "shoes" => "shoes#unhide", as: 'unhide_shoes'
 	root to: 'pages#home'
 
   resources :runs
