@@ -26,7 +26,6 @@ class ShoesController < ApplicationController
   # GET /shoes/new.json
   def new
     @shoe = current_user.shoes.build
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @shoe }

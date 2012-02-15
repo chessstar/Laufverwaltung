@@ -19,6 +19,11 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+
+  <div class="field">
+    <%= f.hidden_field :viewable, :value => 'true' %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

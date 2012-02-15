@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Laufverwaltung</title>
+	<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/overcast/jquery-ui.css", "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id='container'>
+	<div id='header'>
+		<h1>Laufverwaltung</h1>
+	</div>
+
+	<div id='content'>
+		<% if flash[:notice] %>
+			<p id='notice'><%= flash[:notice] %> </p>
+		<% end %>
+		<% if flash[:alert] %>
+			<p id='alert'><%= flash[:alert] %> </p>
+		<% end %>
+	</div>
+
+
+
+	<%= yield %>
+
+	<div id='footer'>
+		<% if user_signed_in? %>
+			<%= link_to 'Abmelden', logout_path, method: :delete %>
+		<% else %>
+			<%= link_to 'Anmelden', login_path %>
+		<% end %>
+	</div>
+
+</div>
+</body>
+</html>

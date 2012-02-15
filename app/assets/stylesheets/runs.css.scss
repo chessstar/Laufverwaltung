@@ -1,6 +1,16 @@
 // Place all the styles related to the runs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ym-col1 {
+	width: 30%;
+	border: 1px solid red;
+ } /* sidebar */
+.ym-col3 {
+	margin-left: 5%;
+	margin-right: 0;
+	border: 1px solid red;
+ } /* content */
+
 #laufstatistik
 {
    background-color: #d5eeff;
