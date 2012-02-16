@@ -5,64 +5,34 @@
 	<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/overcast/jquery-ui.css", "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-	<meta name="description" content=""/>
-	<meta name="author" content=""/>
-	<!-- mobile viewport optimisation -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- stylesheets -->
-  <%= stylesheet_link_tag "css/central.css" %>
-	<!--[if lte IE 7]>
-	<%= stylesheet_link_tag "yaml/core/iehacks.min.css" %>
-	<![endif]-->
-	<!--[if lt IE 9]>
-	 <%= stylesheet_link_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
-	<![endif]-->
 </head>
-
 <body>
-<header>
-	<div class="ym-grid">
-		<div class="ym-g960-12 ym-gl">
-			<div class="ym-gbox">
-				<h5>Laufverwaltung</h5>
-			</div>
-		</div>
+<div id='container'>
+	<div id='header'>
+		<h1>Laufverwaltung</h1>
 	</div>
-</header>
 
-<div class="ym-grid">
-	<div class="ym-g960-2 ym-gl">
-    <div class="ym-gbox">
-			<ul>
-				<li>Navi</li>
-				<li>Navi</li>
-				<li>Navi</li>
-				<li>Navi</li>
-				<li>Navi</li>
-			</ul>
-    </div>
+	<div id='content'>
+		<% if flash[:notice] %>
+			<p id='notice'><%= flash[:notice] %> </p>
+		<% end %>
+		<% if flash[:alert] %>
+			<p id='alert'><%= flash[:alert] %> </p>
+		<% end %>
 	</div>
-	<div class="ym-g960-10 ym-gl">
-    <div class="ym-gbox">
-			<%= yield %>
-    </div>
+
+
+
+	<%= yield %>
+
+	<div id='footer'>
+		<% if user_signed_in? %>
+			<%= link_to 'Abmelden', logout_path, method: :delete %>
+		<% else %>
+			<%= link_to 'Anmelden', login_path %>
+		<% end %>
 	</div>
+
 </div>
-
-
-<footer>
-	<div class="ym-grid">
-		<div class="ym-g960-12 ym-gl">
-			<div class="ym-gbox">
-				<% if user_signed_in? %>
-					<%= link_to 'Abmelden', logout_path, method: :delete %>
-				<% else %>
-					<%= link_to 'Anmelden', login_path %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</footer>
-
 </body>
 </html>
