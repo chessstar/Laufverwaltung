@@ -59,13 +59,14 @@
 	*
 	*/
 	.ym-form {
-		background:#f4f4f4;
-		border:2px #fff solid;
+		background:LightGreen;
+		border:1px DarkGreen solid;
 		margin: 1.5em 0 0 0;
 		padding: 0;
-		-webkit-box-shadow: 0 0 4px #ddd;
-		-moz-box-shadow: 0 0 4px #ddd;
-		box-shadow: 0 0 4px #ddd;
+		-webkit-box-shadow: 0 0 4px Black;
+		-moz-box-shadow: 0 0 4px Black;
+		box-shadow: 0 0 4px Black;
+		width:400px;
 	}
 
 	.ym-form fieldset {
@@ -85,7 +86,7 @@
 	}
 
 	.ym-form label {
-		color:#666;
+		color:#000;
 		line-height: 1.5em;
 	}
 

@@ -40,13 +40,13 @@
 
 	/* Basic Element Styling */
 	header {
-		background: #444;
+		background: ForestGreen;
 		color: #ccc;
 	}
 
 	header h1 {
 		background: transparent;
-		color: #fff;
+		color: #000;
 	}
 
 	nav {
@@ -58,7 +58,7 @@
 	}
 
 	footer {
-		background: #eee;
+		background: ForestGreen;
 		color: #444;
 	}
 

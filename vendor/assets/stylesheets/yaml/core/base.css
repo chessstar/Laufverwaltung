@@ -50,8 +50,8 @@
 
 		/* (en) Standard values for colors and text alignment */
 		/* (de) Vorgabe der Standardfarben und Textausrichtung */
-		background:#fff;
-		color:#000;
+		background:ForestGreen;
+		color:white;
 		text-align:left; /* LTR */
 	}
 
