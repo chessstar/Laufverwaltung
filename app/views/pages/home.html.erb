@@ -3,7 +3,5 @@
     <%= link_to "Meine Läufe", runs_path %>
   </p>
 <% else %>
-  <p>
-  <%= link_to "Benutzerkonto erstellen", new_user_path %>
-  </p>
+  <%= render 'sessions/login' %>
 <% end %>
