@@ -22,12 +22,13 @@
 
 	/* Layout Module Configuration */
 	.ym-wrapper {
-		max-width: 80em;
+		width: 100%;
 		margin: 0 auto;
+		z-index:55;
 	}
 
 	.ym-wbox {
-		padding: 1.5em;
+		padding: 0;
 	}
 
 	/* fallback for media queries */
@@ -40,7 +41,7 @@
 
 	/* Basic Element Styling */
 	header {
-		background: ForestGreen;
+		background: #270A02;
 		color: #ccc;
 	}
 
@@ -58,7 +59,7 @@
 	}
 
 	footer {
-		background: ForestGreen;
+		background: #270A02;
 		color: #444;
 	}
 
@@ -68,7 +69,7 @@
 
 	header .ym-wbox,
 	footer .ym-wbox {
-		padding: 1.5em;
+		padding: 0em;
 	}
 
 	.ym-gbox { padding: 0 1.5em; }

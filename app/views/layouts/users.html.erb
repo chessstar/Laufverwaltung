@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Laufverwaltung</title>
+	<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/overcast/jquery-ui.css", "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<!-- mobile viewport optimisation -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- stylesheets -->
+  <%= stylesheet_link_tag "css/central.css" %>
+	<!--[if lte IE 7]>
+	<%= stylesheet_link_tag "yaml/core/iehacks.min.css" %>
+	<![endif]-->
+	<!--[if lt IE 9]>
+	 <%= stylesheet_link_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
+	<![endif]-->
+</head>
+
+<body>
+<header>
+	<div class="ym-grid">
+		<div class="ym-g960-12 ym-gl"><%= image_tag("logo_2.png", :alt => "Logo") %>
+			<div class="ym-gbox">
+				
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="ym-grid">
+	<div class="ym-g960-12 ym-gl">
+    <div class="ym-gbox">
+			<%= yield %>
+    </div>
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

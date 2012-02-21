@@ -1,4 +1,4 @@
-<%= form_tag(url_for(sessions_path), :class => 'ym-form') do %>  
+<%= form_tag(url_for(sessions_path), :class => 'login_form') do %>  
 	<div class="ym-fbox-text">
 		<%= label_tag :email %></br>
 		<%= text_field_tag :email, params[:email] %>
@@ -10,11 +10,12 @@
 	</div>
 
 	<div class="ym-fbox-text">
-		<%= submit_tag "Log in", :class => "ym-button" %>
+		<%= submit_tag "Log in" %>
 	</div>
-<% end %>
-	<div class="ym-form">
+
+	<div class="new_user">
 		<div class="ym-fbox-text">
 		<%= link_to "Neues Konto erstellen", new_user_path %>
 		</div>
 	</div>
+<% end %>
