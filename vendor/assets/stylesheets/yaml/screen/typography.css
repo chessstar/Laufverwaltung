@@ -69,7 +69,7 @@
 	h6 {
 		font-family: "Droid Sans", Arial, Helvetica, sans-serif;
 		font-weight: 400;
-		color:PaleTurquoise;
+		color:Cornsilk;
 		margin:0;
 	}
 
@@ -242,21 +242,36 @@
 
 	/*--- Links ----------------------------------------------------------------------------------------- */
 
-	a {
-		color:#4D87C7;
+	a.normal {
+		color:crimson;
 		background:transparent;
 		text-decoration:none;
 	}
 
-	a:active { outline: none; }
+	a.normal:active { outline: none; }
 
 	/* (en) maximum constrast for tab focus - change with great care */
 	/* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
-	a:hover,
-	a:focus {
-		background-color: #800;
+	a.normal:hover,
+	a.normal:focus {
+		background-color: DarkGreen;
 		color:#fff;
 		text-decoration:none;
+	}
+
+	a.speziell {
+		color:ivory;
+		background:transparent;
+		text-decoration:underline;
+	}
+
+
+	a.speziell:hover,
+	a.speziell:active,
+	a.speziell:focus
+ {
+		color:ivory;
+		text-decoration:underline;
 	}
 
 	/* --- images ------------------ */
@@ -458,11 +473,12 @@
 
 	.bordertable tbody td {
 		border-right:1px solid #ccc;
+		background:ivory;
 	}
 
 	/* highlight row on mouse over */
 	tbody tr:hover th,
 	tbody tr:hover td {
-		background:#f8f8f8;
+		background:Lightgreen;
 	}
 }

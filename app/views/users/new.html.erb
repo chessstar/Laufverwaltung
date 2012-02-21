@@ -1,4 +1,4 @@
-<%= form_for @user do |f|  %>
+<%= form_for @user, :html => { :class => 'ym-form'} do |f|  %>
 	<% if @user.errors.any? %>
 		<ul>
 			<% @user.errors.full_messages.each do |msg| %>
@@ -7,29 +7,29 @@
 		</ul>
 	<% end %>
 
-	<p>
+	<div class="ym-fbox-text">
 		<%= f.label :email %><br />
 		<%= f.text_field :email %>
-	</p>
+	</div>
 
-	<p>
+	<div class="ym-fbox-text">
 		<%= f.label :nickname %><br />
 		<%= f.text_field :nickname %>
-	</p>
+	</div>
 
-	<p>
+	<div class="ym-fbox-text">
 		<%= f.label :password %><br />
 		<%= f.password_field :password %>
-	</p>
+	</div>
 
-	<p>
+	<div class="ym-fbox-text">
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation %>
-	</p>
+	</div>
 
-	<p>
+	<div class="ym-fbox-text">
 		<%= f.submit %>
-	</p>
+	</div>
 <% end %>
 
 

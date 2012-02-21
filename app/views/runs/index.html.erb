@@ -1,38 +1,38 @@
-<h3><%= @nickname %> ist angemeldet</h3>
-<%= render 'laufstatistik'%>
-<%= render 'shoes/schuhstatistik'%>
+<h3>Die letzten Läufe von <%= @nickname %></h3>
+<%# render 'laufstatistik'%>
+<%# render 'shoes/schuhstatistik'%>
 
-<div id='letzte_laeufe'>
-	<table>
-		<tr>
-		  <th>Distanz</th>
-		  <th>Laufzeit</th>
-		  <th>Tempo</th>
-		  <th>Marke</th>
-		  <th>Model</th>
-		  <th>gelaufen am:</th>
-		  <th></th>
-		  <th></th>
-		  <th></th>
-		</tr>
+	<table class="bordertable narrow">
+		<thead>
+			<tr>
+				<th>Distanz</th>
+				<th>Laufzeit</th>
+				<th>Tempo</th>
+				<th>Marke</th>
+				<th>Model</th>
+				<th class="nowrap">gelaufen am:</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
 
-	<% @runs.each do |run| %>
-		<tr>
-		  <td><%= number_with_precision run.distance %> km</td>
-		  <td><%= (Time.mktime(0)+(run.runtime_in_seconds)).strftime("%k:%M:%S") %></td>
-		  <td><%= (Time.mktime(0)+((run.runtime_in_seconds) / (run.distance))).strftime("%M:%S") %> min/km</td>
-		  <td><%= run.shoe.brand %></td>
-		  <td><%= run.shoe.description %></td>
-		  <td><%= localize run.run_at , form: :short %></td>
-		  <td><%# link_to 'Details', run %></td>
-		  <td><%= link_to 'Bearbeiten', edit_run_path(run) %></td>
-		  <td><%= link_to 'Löschen', run, confirm: 'Are you sure?', method: :delete %></td>
-		</tr>
-	<% end %>
+		<tbody>
+			<% @runs.each do |run| %>
+				<tr>
+					<td class="nowrap"><%= number_with_precision run.distance %> km</td>
+					<td class="nowrap"><%= (Time.mktime(0)+(run.runtime_in_seconds)).strftime("%k:%M:%S") %></td>
+					<td class="nowrap"><%= (Time.mktime(0)+((run.runtime_in_seconds) / (run.distance))).strftime("%M:%S") %> min/km</td>
+					<td class="nowrap"><%= run.shoe.brand %></td>
+					<td class="nowrap"><%= run.shoe.description %></td>
+					<td class="nowrap"><%= localize run.run_at , form: :short %></td>
+					<td class="nowrap"><%= link_to 'Bearbeiten', edit_run_path(run), :class => "normal" %></td>
+					<td class="nowrap"><%= link_to 'Löschen', run, :class => "normal", confirm: 'Are you sure?', method: :delete %></td>
+				</tr>
+			<% end %>
+		</tbody>
 	</table>
 	<p>
-	<%= link_to 'Neuen Lauf eingeben', new_run_path %> 
+	<%= link_to 'Neuen Lauf eingeben', new_run_path, :class => "speziell" %> 
 	</p>
-</div>
 
 
