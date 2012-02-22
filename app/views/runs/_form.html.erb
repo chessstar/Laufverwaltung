@@ -11,36 +11,36 @@
     </div>
   <% end %>
 
-	<div class="ym-fbox-text">
+	<div class="label_text">
     <%= f.label :distance %><br />
     <%# f.text_field :distance %>
 		<%= f.text_field :distance, :size => 6, :maxlength => 6, :value => (number_with_delimiter(f.object.distance, :separator => ',')) %>km
   </div>
 
-	<div class="ym-fbox-text">
+	<div class="label_text">
     <%= f.label :run_hours %><br />
     <%= f.text_field :run_hours, :size => 2,  :maxlength => 2 %>
   </div>
-	<div class="ym-fbox-text">
+	<div class="label_text">
     <%= f.label :run_minutes %><br />
     <%= f.text_field :run_minutes, :size => 2,  :maxlength => 2 %>
   </div>
-	<div class="ym-fbox-text">
+	<div class="label_text">
     <%= f.label :run_seconds %><br />
     <%= f.text_field :run_seconds, :size => 2,  :maxlength => 2 %>
   </div>
 
-	<div class="ym-fbox-select">
+	<div class="label_text">
     <%= f.label :fullname %><br />
 		<%= f.collection_select :shoe_id, @schuhe_eines_nutzer, :id, :fullname, prompt: "Bitte wählen" %>
   </div>
 
-	<div>
+	<div class="label_text">
     <%= f.label :run_at %><br />
 		<%= f.date_select :run_at, :end_year => Time.now.year, :start_year => Time.now.year- 3 %>
   </div>
 
-	<div class="ym-fbox-text">
+	<div>
     <%= f.submit %>
   </div>
 <% end %>
