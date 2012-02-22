@@ -1,4 +1,4 @@
-<%= form_for @run, :html => { :class => 'ym-form'} do |f| %>
+<%= form_for @run, :html => { :class => 'run_form'} do |f| %>
   <% if @run.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@run.errors.count, "error") %> prohibited this run from being saved:</h2>
@@ -14,7 +14,7 @@
 	<div class="ym-fbox-text">
     <%= f.label :distance %><br />
     <%# f.text_field :distance %>
-		<%= f.text_field :distance, :size => 6, :maxlength => 6, :value => (number_with_delimiter(f.object.distance, :separator => ',')) %>
+		<%= f.text_field :distance, :size => 6, :maxlength => 6, :value => (number_with_delimiter(f.object.distance, :separator => ',')) %>km
   </div>
 
 	<div class="ym-fbox-text">
@@ -35,7 +35,7 @@
 		<%= f.collection_select :shoe_id, @schuhe_eines_nutzer, :id, :fullname, prompt: "Bitte wählen" %>
   </div>
 
-	<div class="ym-fbox-select">
+	<div>
     <%= f.label :run_at %><br />
 		<%= f.date_select :run_at, :end_year => Time.now.year, :start_year => Time.now.year- 3 %>
   </div>

@@ -23,8 +23,6 @@ class RunsController < ApplicationController
 
   def index
     @runs = current_user.runs.order( 'run_at DESC' )
-    @shoes = current_user.shoes.sichtbar
-		@hide_shoes = current_user.shoes.unsichtbar.count
 		@nickname = current_user.nickname
 		@summe_distance_all = Run.nutzer(current_user.id).sum(:distance)
 		startdatum = '2011-01-01'.to_date

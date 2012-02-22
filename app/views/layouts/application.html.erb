@@ -21,34 +21,42 @@
 
 <body>
 <header>
-	<div class="ym-grid">
-		<div class="ym-g960-12 ym-gl"><%= image_tag("logo_2.png", :alt => "Logo") %>
-			<div class="ym-gbox">
-				
-			</div>
-		</div>
-	</div>
+    <div class="ym-column">
+    <div class="ym-col1">
+    <div class="ym-cbox">
+			<%= image_tag("logo_2.png", :alt => "Logo") %>
+    </div>
+    </div>
+    <div class="ym-col3">
+    <div class="ym-cbox">
+				<nav class="ym-hlist">
+				  <ul>
+				   <li class="active"><%= link_to 'Letzte Läufe', runs_path %></li>
+				   <li><a href="#">Statistik</a></li>
+				   <li><a href="#"><%= link_to 'Schuhverwaltung', shoes_path %></a></li>
+				   <li><a href="#">Impressum</a></li>
+				   <li><a href="#">Kontakt</a></li>
+				 </ul>
+				</nav>
+    </div>
+    </div>
+    </div>
 </header>
 
-<div class="ym-grid">
-	<div class="ym-g960-1 ym-gl">
-    <div class="ym-gbox">
-			<ul>
-				<li>Navi</li>
-				<li>Navi</li>
-				<li>Navi</li>
-				<li>Navi</li>
-				<li>Navi</li>
-			</ul>
-    </div>
-	</div>
-	<div class="ym-g960-11 ym-gl">
+
+    <div class="ym-grid">
+    <div class="ym-g80 ym-gl">
     <div class="ym-gbox">
 			<%= yield %>
     </div>
-	</div>
-</div>
+    </div>
+    <div class="ym-g20 ym-gr">
+    <div class="ym-gbox">
+			<%= image_tag("skyscraper120x600.jpg", :alt => "Werbung") %>
 
+    </div>
+    </div>
+    </div>
 
 <footer>
 	<div class="ym-grid">

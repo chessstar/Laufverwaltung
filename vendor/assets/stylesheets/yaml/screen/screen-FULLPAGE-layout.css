@@ -41,8 +41,9 @@
 
 	/* Basic Element Styling */
 	header {
-		background: #270A02;
+		background: #864205;
 		color: #ccc;
+		border-bottom: 3px solid GoldenRod
 	}
 
 	header h1 {

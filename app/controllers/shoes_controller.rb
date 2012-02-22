@@ -6,6 +6,7 @@ class ShoesController < ApplicationController
   # GET /shoes.json
   def index
     @shoes = current_user.shoes.sichtbar
+		@hide_shoes = current_user.shoes.unsichtbar.count
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shoes }
@@ -62,7 +63,7 @@ class ShoesController < ApplicationController
 		@shoe.viewable = false
 		@shoe.save
     respond_to do |format|
-      format.html { redirect_to runs_path }
+      format.html { redirect_to shoes_path }
 		end
 	end
 
@@ -75,7 +76,7 @@ class ShoesController < ApplicationController
 			shoe.save
 		end
     respond_to do |format|
-      format.html { redirect_to runs_path }
+      format.html { redirect_to shoes_path }
 		end
 	end
 

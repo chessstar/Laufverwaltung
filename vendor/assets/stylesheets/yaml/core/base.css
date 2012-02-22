@@ -207,9 +207,8 @@
 
 	.ym-column { display:table; width:100%; }
 
-	.ym-col1 { float:left; width:20%; }
-	.ym-col2 { float:right; width:20%; }
-	.ym-col3 { width:auto; margin:0 20%; }
+	.ym-col1 { float:left; width:25%; }
+	.ym-col3 { margin-left: 25%; margin-right: 0; margin-top:1.5em; } /* content */
 
 	/* (en) Preparation for absolute positioning within content columns */
 	/* (de) Vorbereitung für absolute Positionierungen innerhalb der Inhaltsspalten */
@@ -217,7 +216,7 @@
 	.ym-cbox-left,
 	.ym-cbox-right { position:relative; }
 
-	.ym-cbox { padding: 0 10px }
+	.ym-cbox { padding: 0 0 }
 	.ym-cbox-left { padding: 0 10px 0 0 }
 	.ym-cbox-right { padding: 0 0 0 10px }
 

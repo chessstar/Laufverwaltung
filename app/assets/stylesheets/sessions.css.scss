@@ -4,7 +4,7 @@
 .login_form
 	{
 		background:#F2CD3B;
-		border:1px DarkGray solid;
+		border:1px White solid;
 		margin: 0 0 0 0;
 		padding: 1.5em;
   	position:absolute;
@@ -14,7 +14,12 @@
 		margin-top:-6em;
 		width:20em;
 		height:12em;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px #040307;
 	}
+
 .new_user
 	{
 		padding: 2em 0 0 0;

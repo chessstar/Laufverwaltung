@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.run_form
+	{
+		background:#F2CD3B;
+		border:1px White solid;
+    margin: 1.4em 0 1.4em 0;
+		padding: 1.5em;
+		width:20em;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px #040307;
+	}
+
+
 
 #laufstatistik
 {

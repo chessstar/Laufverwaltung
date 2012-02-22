@@ -52,7 +52,7 @@
 	body {
 		font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
 		font-size:87.50%; /* base: 14px */
-		color:#444;
+		color:#fff;
 
 		/* (en) Prevent auto-scaling of text in mobile webkit browsers */
 		/* (de) Automatische Schriftvergrößerung in mobilen Webkit-Browsern vermeiden */
@@ -69,7 +69,7 @@
 	h6 {
 		font-family: "Droid Sans", Arial, Helvetica, sans-serif;
 		font-weight: 400;
-		color:Cornsilk;
+		color:#F2CD3B;
 		margin:0;
 	}
 
@@ -254,7 +254,7 @@
 	/* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
 	a.normal:hover,
 	a.normal:focus {
-		background-color: DarkGreen;
+		background-color: #270A02;
 		color:#fff;
 		text-decoration:none;
 	}
@@ -442,18 +442,18 @@
 
 	thead th {
 		text-align: left;
-		color:#000;
+		color:Snow;
 		border-bottom:2px #000 solid;
 	}
 
 	.bordertable thead th {
-		background:#e0e0e0;
+		background:Crimson;
 		border-right:1px #ccc solid;
 		border-bottom:1px #ccc solid;
 	}
 
 	.bordertable tbody th[scope="row"] {
-		background:#f0f0f0;
+		background:#270A02;
 	}
 
 	tbody th {
@@ -479,6 +479,6 @@
 	/* highlight row on mouse over */
 	tbody tr:hover th,
 	tbody tr:hover td {
-		background:Lightgreen;
+		background:Lavender;
 	}
 }
