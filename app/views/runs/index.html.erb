@@ -1,7 +1,5 @@
+<%= render 'navigation_runs' %>
 <h3>Die letzten Läufe von <%= @nickname %></h3>
-<%# render 'laufstatistik'%>
-<%# render 'shoes/schuhstatistik'%>
-
 	<table class="bordertable narrow">
 		<thead>
 			<tr>
@@ -34,5 +32,3 @@
 	<p>
 	<%= link_to 'Neuen Lauf eingeben', new_run_path, :class => "speziell" %> 
 	</p>
-
-

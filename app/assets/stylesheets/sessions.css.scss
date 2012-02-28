@@ -37,6 +37,7 @@ img.bg {
 	height: auto;
 	/* feste Positionierung */
 	position: fixed;
+	z-index:0;
 	top: 0;
 	left: 0;
 }
@@ -46,4 +47,23 @@ img.logo
 		left:0px;
 		top:0px;
 		z-index:10;	
+	}
+#fehler
+	{
+		background:Darkred;
+		border:1px White solid;
+		margin: 0 0 0 0;
+		padding: 1.5em;
+  	position:absolute;
+ 		left:50%;
+		top:20%;
+  	margin-left:-10em;
+		margin-top:-1em;
+		width:20em;
+		height:1em;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px #040307;
+		color:white;
 	}

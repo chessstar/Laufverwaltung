@@ -5,18 +5,34 @@ class RunsController < ApplicationController
   # GET /runs
   # GET /runs.json
 
+
+	def statistic
+		#Gesamtdistanz		
+		@summe_distance_all = Run.nutzer(current_user.id).sum(:distance)
+		startdatum = '2011-01-01'.to_date
+		enddatum = '2011-12-12'.to_date
+		#Distanz 2011
+		@summe_distance_2011 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+		startdatum = '2012-01-01'.to_date
+		enddatum = '2012-12-31'.to_date
+		#Distanz 2012
+		@summe_distance_2012 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @runs }
+    end
+	end
+
+
 	def output
 		startdatum = params[:startdatum].to_date
 		enddatum = params[:enddatum].to_date
 		respond_to do |format|
 			if enddatum.nil? or startdatum.nil? or (startdatum > enddatum)
-				@msg = 'Datum nicht korrekt'
-				flash.now[:notice] = @msg
-				format.js
+        format.html { redirect_to statistic_path, notice: 'Fehlerhaftes Datum'}
 			else
- 				@msg = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
-				flash.now[:alert] = @msg
-				format.js
+ 				@summe_distance_calc = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+      	format.html # output.html.erb
 		  end
 		end
 	end
@@ -24,13 +40,6 @@ class RunsController < ApplicationController
   def index
     @runs = current_user.runs.order( 'run_at DESC' )
 		@nickname = current_user.nickname
-		@summe_distance_all = Run.nutzer(current_user.id).sum(:distance)
-		startdatum = '2011-01-01'.to_date
-		enddatum = '2011-12-12'.to_date
-		@summe_distance_2011 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
-		startdatum = '2012-01-01'.to_date
-		enddatum = '2012-12-31'.to_date
-		@summe_distance_2012 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @runs }

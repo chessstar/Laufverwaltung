@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to runs_path, notice: "Sie haben sich erfolgreich angemeldet"
 		else
-			flash.now.alert = "Fehlerhafte Email-Adresse oder Passwort"
-			render 'new'
+			redirect_to root_path, notice: 'Fehlerhafte Email oder Passwort'
 		end
 	end
 	

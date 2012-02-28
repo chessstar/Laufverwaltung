@@ -29,15 +29,7 @@
     </div>
     <div class="ym-col3">
     <div class="ym-cbox">
-				<nav class="ym-hlist">
-				  <ul>
-				   <li class="active"><%= link_to 'Letzte Läufe', runs_path %></li>
-				   <li><a href="#">Statistik</a></li>
-				   <li><a href="#"><%= link_to 'Schuhverwaltung', shoes_path %></a></li>
-				   <li><a href="#">Impressum</a></li>
-				   <li><a href="#">Kontakt</a></li>
-				 </ul>
-				</nav>
+			<%= yield(:navigation) %>
     </div>
     </div>
     </div>
@@ -71,6 +63,5 @@
 		</div>
 	</div>
 </footer>
-
 </body>
 </html>

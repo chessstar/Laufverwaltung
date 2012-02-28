@@ -9,6 +9,7 @@ class ShoesController < ApplicationController
 		@hide_shoes = current_user.shoes.unsichtbar.count
     respond_to do |format|
       format.html # index.html.erb
+			format.js
       format.json { render json: @shoes }
     end
   end
@@ -46,7 +47,7 @@ class ShoesController < ApplicationController
 		@shoe.fullname = (params[:shoe][:brand].to_s)+(params[:shoe][:description].to_s)
     respond_to do |format|
       if @shoe.save
-        format.html { redirect_to @shoe, notice: 'Neuen Laufschuh erfolgreich erzeugt' }
+        format.html { redirect_to shoe_path, notice: 'Neuen Laufschuh erfolgreich erzeugt' }
         format.json { render json: @shoe, status: :created, location: @shoe }
       else
         format.html { render action: "new" }
@@ -87,7 +88,7 @@ class ShoesController < ApplicationController
 
     respond_to do |format|
       if @shoe.update_attributes(params[:shoe])
-        format.html { redirect_to runs_path, notice: 'Laufschuh erfolgreich geändert' }
+        format.html { redirect_to shoes_path, notice: 'Laufschuh erfolgreich geändert' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -1,21 +1,26 @@
-<%= form_tag(url_for(sessions_path), :class => 'login_form') do %>  
-	<div class="label_text">
-		<%= label_tag :email %></br>
-		<%= text_field_tag :email, params[:email] %>
-	</div>
-
-	<div class="label_text">
-		<%= label_tag :password %></br>
-		<%= password_field_tag :password %>
-	</div>
-
-	<div>
-		<%= submit_tag "Log in" %>
-	</div>
-
-	<div class="new_user">
-		<div>
-		<%= link_to "Neues Konto erstellen", new_user_path, :class => "normal" %>
+<% if flash[:notice] %>
+		<div id = "fehler"><%= flash[:notice] %></div>
+	<% end %>
+<div class = "login_form">
+	<%= form_tag(url_for(sessions_path)) do %>  
+		<div class="label_text">
+			<%= label_tag :email %></br>
+			<%= text_field_tag :email, params[:email] %>
 		</div>
-	</div>
-<% end %>
+
+		<div class="label_text">
+			<%= label_tag :password %></br>
+			<%= password_field_tag :password %>
+		</div>
+
+		<div>
+			<%= submit_tag "Log in" %>
+		</div>
+
+		<div class="new_user">
+			<div>
+			<%= link_to "Neues Konto erstellen", new_user_path, :class => "normal" %>
+			</div>
+		</div>
+	<% end %>
+</div>

@@ -1,5 +1,4 @@
-<div id="laufstatistik">
-	<h4>Laufstatistik</h4>
+	<h3>Laufstatistik</h3>
 
 	<div class="block_1">
 		<p>Gesamtdistanz: <%= number_with_precision(@summe_distance_all) %> km</p>
@@ -9,7 +8,7 @@
 
 	<div class="block_1">
 		<p>Oder wähle einen Zeitraum</p>
-		<%= form_tag output_path, :remote => true do %>
+		<%= form_tag output_path do %>
 			<div class="field">
 				<%= label_tag(:startdatum, "Start") %>
 				<%= text_field_tag :startdatum, nil, :size => 10, :maxlength => 10 %>
@@ -25,8 +24,4 @@
 			</div>	
 
 		<% end %>
-			<div id='ausgabe'>
-					<%= render :partial => 'flash' , :locals => { :flash => flash } %>
-			</div> 
 	</div>
-</div>

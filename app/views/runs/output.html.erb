@@ -1,3 +1,6 @@
-<%= debug params %>
-<h1>Ausgabe</h1>
-<div>Errechnete Distanz ist <%= @summe_distance_calc %> km</div>
+<%# debug params %>
+<%= render 'navigation_statistic' %>
+<h3>Ausgabe</h3>
+
+<div>Errechnete Distanz ist <%= number_with_precision(@summe_distance_calc) %> km</div>
+<%= link_to "Zurück zur Statistik", statistic_path, :class => "speziell" %>
