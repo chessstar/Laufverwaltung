@@ -114,7 +114,6 @@ class RunsController < ApplicationController
   def destroy
     @run = current_user.runs.find(params[:id])
     @run.destroy
-
     respond_to do |format|
       format.html { redirect_to runs_url }
       format.json { head :ok }

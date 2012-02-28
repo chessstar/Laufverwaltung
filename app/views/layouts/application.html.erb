@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Laufverwaltung</title>
+  <title>RunBase | <%= yield(:title) %></title>
 	<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/overcast/jquery-ui.css", "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -24,7 +24,7 @@
     <div class="ym-column">
     <div class="ym-col1">
     <div class="ym-cbox">
-			<%= image_tag("logo_2.png", :alt => "Logo") %>
+			<%= link_to image_tag("logo_2.png", :alt => "Logo"), runs_path %>
     </div>
     </div>
     <div class="ym-col3">
@@ -35,33 +35,18 @@
     </div>
 </header>
 
-
     <div class="ym-grid">
-    <div class="ym-g80 ym-gl">
-    <div class="ym-gbox">
-			<%= yield %>
-    </div>
-    </div>
+	    <div class="ym-g80 ym-gl">
+		    <div class="ym-gbox">
+					<%= yield %>
+		    </div>
+	    </div>
     <div class="ym-g20 ym-gr">
-    <div class="ym-gbox">
-			<%= image_tag("skyscraper120x600.jpg", :alt => "Werbung") %>
+	    <div class="ym-gbox">
+				<%= image_tag("skyscraper120x600.jpg", :alt => "Werbung") %>
+	    </div>
+    </div>
+   </div>
 
-    </div>
-    </div>
-    </div>
-
-<footer>
-	<div class="ym-grid">
-		<div class="ym-g960-12 ym-gl">
-			<div class="ym-gbox">
-				<% if user_signed_in? %>
-					<%= link_to 'Abmelden', logout_path, method: :delete %>
-				<% else %>
-					<%= link_to 'Anmelden', login_path %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</footer>
 </body>
 </html>

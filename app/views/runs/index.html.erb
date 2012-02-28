@@ -1,3 +1,4 @@
+<% provide(:title, 'Letzte Läufe') %>
 <%= render 'navigation_runs' %>
 <h3>Die letzten Läufe von <%= @nickname %></h3>
 	<table class="bordertable narrow">
@@ -24,7 +25,7 @@
 					<td class="nowrap"><%= run.shoe.description %></td>
 					<td class="nowrap"><%= localize run.run_at , form: :short %></td>
 					<td class="nowrap"><%= link_to 'Bearbeiten', edit_run_path(run), :class => "normal" %></td>
-					<td class="nowrap"><%= link_to 'Löschen', run, :class => "normal", confirm: 'Are you sure?', method: :delete %></td>
+					<td class="nowrap"><%= link_to 'Löschen', run, :class => "normal", confirm: 'Sind Sie sicher ?', method: :delete %></td>
 				</tr>
 			<% end %>
 		</tbody>

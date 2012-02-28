@@ -3,7 +3,7 @@ Laufverwaltung::Application.routes.draw do
   put "shoes/:id/hide" => "shoes#hide", as: 'hide_shoe'
   put "shoes" => "shoes#unhide", as: 'unhide_shoes'
 	root to: 'pages#home'
-	get "run/statistic" => "runs#statistic", as: 'statistic'
+	get "runs/statistic" => "runs#statistic", as: 'statistic'
 
   resources :runs
 	resources :users, only: [:new, :create]
