@@ -2,8 +2,6 @@
 
 	<div class="block_1">
 		<p>Gesamtdistanz: <%= number_with_precision(@summe_distance_all) %> km</p>
-		<p>Distanz im Jahr 2011: <%= number_with_precision(@summe_distance_2011) %> km</p>
-		<p>Distanz im Jahr  2012: <%= number_with_precision(@summe_distance_2012) %> km</p>
 	</div>
 
 	<div class="block_1">
@@ -25,3 +23,82 @@
 
 		<% end %>
 	</div>
+
+<table class="bordertable narrow">
+<thead>
+  <tr>
+    <th>Monat</th>
+    <th>2011</th>
+    <th>2012</th>
+  </tr>
+</thead>
+<tfoot>
+  <tr>
+    <td>Summe</td>
+    <td class="nowrap"><%= number_with_precision(@summe_distance_2011) %> km</td>
+    <td class="nowrap"><%= number_with_precision(@summe_distance_2012) %> km</td>
+  </tr>
+</tfoot>
+<tbody>
+  <tr>
+    <td>Januar</td>
+		<td class="nowrap"><%= number_with_precision @JAN_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @JAN_2012 %> km</td>
+  </tr>
+  <tr>
+    <td>Februar</td>
+		<td class="nowrap"><%= number_with_precision @FEB_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @FEB_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>März</td>
+		<td class="nowrap"><%= number_with_precision @MAR_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @MAR_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>April</td>
+		<td class="nowrap"><%= number_with_precision @APR_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @APR_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>Mai</td>
+		<td class="nowrap"><%= number_with_precision @MAY_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @MAY_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>Juni</td>
+		<td class="nowrap"><%= number_with_precision @JUN_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @JUN_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>Juli</td>
+		<td class="nowrap"><%= number_with_precision @JUL_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @JUL_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>August</td>
+		<td class="nowrap"><%= number_with_precision @AUG_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @AUG_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>September</td>
+		<td class="nowrap"><%= number_with_precision @SEP_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @SEP_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>Oktober</td>
+		<td class="nowrap"><%= number_with_precision @OCT_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @OCT_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>November</td>
+		<td class="nowrap"><%= number_with_precision @NOV_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @NOV_2012 %> km</td>
+  </tr>
+  <tr>
+		<td>Dezember</td>
+		<td class="nowrap"><%= number_with_precision @DEC_2011 %> km</td>
+		<td class="nowrap"><%= number_with_precision @DEC_2012 %> km</td>
+  </tr>
+</tbody>
+</table>

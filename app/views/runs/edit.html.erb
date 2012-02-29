@@ -1,5 +1,5 @@
 <% provide(:title, 'Letzte Läufe - Lauf bearbeiten') %>
-<%= render partial: 'runs/navigation', locals: {nav_runs: 'active', nav_shoes: '', nav_statistic: '', nav_about: '', nav_contact: ''} %>
+<%= render partial: 'shared/navigation', locals: {nav_runs: 'active', nav_shoes: '', nav_statistic: '', nav_about: '', nav_contact: ''} %>
 <h3>Lauf bearbeiten</h3>
 <%= render 'form' %>
 <%= link_to 'Zurück', runs_path, :class => "speziell" %>

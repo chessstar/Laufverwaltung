@@ -446,6 +446,14 @@
 		border-bottom:2px #000 solid;
 	}
 
+	tfoot td {
+		text-align: left;
+		color:Snow;
+		background:Crimson;
+		border-right:1px #ccc solid;
+		border-bottom:1px #ccc solid;
+	}
+
 	.bordertable thead th {
 		background:Crimson;
 		border-right:1px #ccc solid;

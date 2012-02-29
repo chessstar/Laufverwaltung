@@ -1,5 +1,5 @@
 <% provide(:title, 'Statistik') %>
-<%= render partial: 'runs/navigation', locals: {nav_runs: '', nav_shoes: '', nav_statistic: 'active', nav_about: '', nav_contact: ''} %>
+<%= render partial: 'shared/navigation', locals: {nav_runs: '', nav_shoes: '', nav_statistic: 'active', nav_about: '', nav_contact: ''} %>
 <h3>Ausgabe</h3>
 <div>Errechnete Distanz ist <%= number_with_precision(@summe_distance_calc) %> km</div>
 <%= link_to "Zurück zur Statistik", statistic_path, :class => "speziell" %>

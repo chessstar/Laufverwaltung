@@ -1,5 +1,5 @@
 <% provide(:title, 'Letzte Läufe') %>
-<%= render partial: 'runs/navigation', locals: {nav_runs: 'active', nav_shoes: '', nav_statistic: '', nav_about: '', nav_contact: ''} %>
+<%= render partial: 'shared/navigation', locals: {nav_runs: 'active', nav_shoes: '', nav_statistic: '', nav_about: '', nav_contact: ''} %>
 <h3>Die letzten Läufe von <%= @nickname %></h3>
 	<table class="bordertable narrow">
 		<thead>

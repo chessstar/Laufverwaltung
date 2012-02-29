@@ -10,19 +10,42 @@ class RunsController < ApplicationController
 		#Gesamtdistanz		
 		@summe_distance_all = Run.nutzer(current_user.id).sum(:distance)
 		startdatum = '2011-01-01'.to_date
-		enddatum = '2011-12-12'.to_date
+		enddatum = '2011-12-31'.to_date
 		#Distanz 2011
 		@summe_distance_2011 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
 		startdatum = '2012-01-01'.to_date
 		enddatum = '2012-12-31'.to_date
 		#Distanz 2012
 		@summe_distance_2012 = Run.nutzer(current_user.id).zeitraum(startdatum, enddatum).sum(:distance)
+		@JAN_2011 = Run.nutzer(current_user.id).zeitraum('2011-01-01'.to_date, '2011-01-31'.to_date).sum(:distance)
+		@FEB_2011 = Run.nutzer(current_user.id).zeitraum('2011-02-01'.to_date, '2011-02-28'.to_date).sum(:distance)
+		@MAR_2011 = Run.nutzer(current_user.id).zeitraum('2011-03-01'.to_date, '2011-03-31'.to_date).sum(:distance)
+		@APR_2011 = Run.nutzer(current_user.id).zeitraum('2011-04-01'.to_date, '2011-04-30'.to_date).sum(:distance)
+		@MAY_2011 = Run.nutzer(current_user.id).zeitraum('2011-05-01'.to_date, '2011-05-31'.to_date).sum(:distance)
+		@JUN_2011 = Run.nutzer(current_user.id).zeitraum('2011-06-01'.to_date, '2011-06-30'.to_date).sum(:distance)
+		@JUL_2011 = Run.nutzer(current_user.id).zeitraum('2011-07-01'.to_date, '2011-07-31'.to_date).sum(:distance)
+		@AUG_2011 = Run.nutzer(current_user.id).zeitraum('2011-08-01'.to_date, '2011-08-31'.to_date).sum(:distance)
+		@SEP_2011 = Run.nutzer(current_user.id).zeitraum('2011-09-01'.to_date, '2011-09-30'.to_date).sum(:distance)
+		@OCT_2011 = Run.nutzer(current_user.id).zeitraum('2011-10-01'.to_date, '2011-10-31'.to_date).sum(:distance)
+		@NOV_2011 = Run.nutzer(current_user.id).zeitraum('2011-11-01'.to_date, '2011-11-30'.to_date).sum(:distance)
+		@DEC_2011 = Run.nutzer(current_user.id).zeitraum('2011-12-01'.to_date, '2011-12-31'.to_date).sum(:distance)
+		@JAN_2012 = Run.nutzer(current_user.id).zeitraum('2012-01-01'.to_date, '2012-01-31'.to_date).sum(:distance)
+		@FEB_2012 = Run.nutzer(current_user.id).zeitraum('2012-02-01'.to_date, '2012-02-28'.to_date).sum(:distance)
+		@MAR_2012 = Run.nutzer(current_user.id).zeitraum('2012-03-01'.to_date, '2012-03-31'.to_date).sum(:distance)
+		@APR_2012 = Run.nutzer(current_user.id).zeitraum('2012-04-01'.to_date, '2012-04-30'.to_date).sum(:distance)
+		@MAY_2012 = Run.nutzer(current_user.id).zeitraum('2012-05-01'.to_date, '2012-05-31'.to_date).sum(:distance)
+		@JUN_2012 = Run.nutzer(current_user.id).zeitraum('2012-06-01'.to_date, '2012-06-30'.to_date).sum(:distance)
+		@JUL_2012 = Run.nutzer(current_user.id).zeitraum('2012-07-01'.to_date, '2012-07-31'.to_date).sum(:distance)
+		@AUG_2012 = Run.nutzer(current_user.id).zeitraum('2012-08-01'.to_date, '2012-08-31'.to_date).sum(:distance)
+		@SEP_2012 = Run.nutzer(current_user.id).zeitraum('2012-09-01'.to_date, '2012-09-30'.to_date).sum(:distance)
+		@OCT_2012 = Run.nutzer(current_user.id).zeitraum('2012-10-01'.to_date, '2012-10-31'.to_date).sum(:distance)
+		@NOV_2012 = Run.nutzer(current_user.id).zeitraum('2012-11-01'.to_date, '2012-11-30'.to_date).sum(:distance)
+		@DEC_2012 = Run.nutzer(current_user.id).zeitraum('2012-12-01'.to_date, '2012-12-31'.to_date).sum(:distance)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @runs }
     end
 	end
-
 
 	def output
 		startdatum = params[:startdatum].to_date
