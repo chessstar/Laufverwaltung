@@ -1,5 +1,5 @@
 <% provide(:title, 'Letzte Läufe - Neuen Lauf eingeben') %>
-<%= render 'navigation_runs' %>
+<%= render partial: 'runs/navigation', locals: {nav_runs: 'active', nav_shoes: '', nav_statistic: ''} %>
 <h3>Neuen Lauf eingeben</h3>
 <%= render 'form' %>
 <%= link_to 'Zurück', runs_path, :class=>"speziell" %>

@@ -1,5 +1,5 @@
 <% provide(:title, 'Schuhverwaltung - Neuen Schuh eingeben') %>
-<%= render 'navigation_shoes' %>
+<%= render partial: 'runs/navigation', locals: {nav_runs: '', nav_shoes: 'active', nav_statistic: ''} %>
 <h3>Neuen Schuh eingeben</h3>
 <%= render 'form' %>
 <%= link_to 'Zurück', :back, :class => "speziell" %>
