@@ -14,6 +14,9 @@ Laufverwaltung::Application.routes.draw do
 	post "sessions" => "sessions#create", as: 'sessions'
 	delete "logout" => "sessions#destroy", as: 'logout'
 
+	get "pages/about" => "pages#about", as: 'about'
+	get "pages/contact" => "pages#contact", as: 'contact'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

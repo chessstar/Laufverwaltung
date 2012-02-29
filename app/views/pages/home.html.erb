@@ -1,7 +1,11 @@
+<% provide(:title, 'Login') %>
 <% if user_signed_in? %>
-  <p>
-    <%= link_to "Meine Läufe", runs_path %>
-  </p>
+<div class = "login_form">
+		<p class="label_text">Sie sind immer noch angemeldet !</p>
+    <p><%= link_to "Zurück", :back, :class => "normal" %></p>
+		<p><%= link_to 'Logout', logout_path, method: :delete, :class => :test, :class => "normal" %></p>
+</div>
+
 <% else %>
   <%= render 'sessions/login' %>
 <% end %>

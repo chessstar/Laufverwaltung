@@ -1,3 +1,4 @@
+<% provide(:title, 'Neuen Nutzer anlegen') %>
 <%= form_for @user, :html => { :class => 'new_user_form'} do |f|  %>
 	<% if @user.errors.any? %>
 		<ul>
